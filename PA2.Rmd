@@ -16,3 +16,17 @@ library(ggplot2)
 library(plyr)
 require(gridExtra)
 ```
+### Data Processing
+First, we download the data file and unzip it with bunzip2.
+```{r}
+setwd("C:/Users/alanpoon/Desktop/coursera/Reproducible Research/RepData_PeerAssessment2/RepData_PeerAssessment2/")
+
+if (!"stormData.csv.bz2" %in% dir("./")  ) {
+  if (!"stormData.csv"  %in% dir("./") ){
+    print("stormData is not there")
+    download.file("http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2", destfile = "./stormData.csv.bz2")
+    bunzip2("./stormData.csv.bz2", overwrite=T, remove=F)
+  }
+} else print("stormData is here")
+
+```
